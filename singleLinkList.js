@@ -70,7 +70,6 @@ class SingleLinkList {
 			this.tail.next = null;
 			--this.length;
 		}
-
 		return popNode;
 	}
 	/**
@@ -79,7 +78,7 @@ class SingleLinkList {
 	 * @return {Node} - removed node
 	 */
 	shift() {
-		const popNode = this.head;
+		const removeNode = this.head;
 		if (this.length === 0) {
 			return undefined;
 		}
@@ -92,7 +91,8 @@ class SingleLinkList {
 			--this.length;
 		}
 
-		return popNode;
+		removeNode.next = null;
+		return removeNode;
 	}
 	/**
 	 * This function will insert item at the top of single link list
@@ -186,6 +186,7 @@ class SingleLinkList {
 		const prevNode = this.get(index - 1);
 		const removeNode = prevNode.next;
 		prevNode.next = removeNode.next;
+		removeNode.next = null;
 		--this.length;
 		return removeNode;
 	}
@@ -233,14 +234,11 @@ class SingleLinkList {
 		for (let i = 0; i < this.length; i++) {
 			next = node.next;
 			node.next = prev;
-			
+
 			prev = node;
 			node = next;
 		}
 	}
 }
 
-module.exports = {
-	Node,
-	SingleLinkList
-};
+module.exports = SingleLinkList;
