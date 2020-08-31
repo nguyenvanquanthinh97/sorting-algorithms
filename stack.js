@@ -20,7 +20,7 @@ class Stack {
 	/**
 	 * This function will remove first node in Stack (LIFO)
 	 * @function pop
-	 * @return {Node} - removed node
+	 * @return {*} - removed node value
 	 */
 	pop() {
 		const removeNode = this.head;
@@ -43,7 +43,7 @@ class Stack {
 	 * This function will insert item at the top of Stack (LIFO)
 	 * @function push
 	 * @param {*} value - input value
-	 * @returns {Stack}
+	 * @returns {Number} stack length
 	 */
 	push(value) {
 		const newNode = new Node(value);
@@ -60,7 +60,7 @@ class Stack {
 	 * This function help to get the item at position index in Stack
 	 * @function get
 	 * @param {Numer} index - index position of node 
-	 * @returns {Node}
+	 * @returns {*} node value
 	 */
 	get(index) {
 		if (index < 0 || index >= this.length) {

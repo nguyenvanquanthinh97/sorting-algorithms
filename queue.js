@@ -21,7 +21,7 @@ class Queue {
 	 * This function will insert item at the end of single link list (FIFO)
 	 * @function enqueue
 	 * @param {*} value - input value
-	 * @returns {Queue}
+	 * @returns {Number} - length
 	 */
 	enqueue(value) {
 		const newNode = new Node(value);
@@ -36,7 +36,7 @@ class Queue {
 	/**
 	 * This function will remove first node in Queue (FIFO)
 	 * @function pop
-	 * @return {Node} - removed node
+	 * @return {*} - removed node value
 	 */
 	dequeue() {
 		const removeNode = this.head;
