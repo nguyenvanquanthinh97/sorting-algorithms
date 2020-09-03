@@ -33,7 +33,7 @@ class PriorityQueue {
 		// its parent index is (n-1) / 2
 		let parentIdx;
 		while ((parentIdx = Math.floor((insertedIdx - 1) / 2)) >= 0) {
-			if (insertedNode.priority > this.values[parentIdx].priority) {
+			if (insertedNode.priority < this.values[parentIdx].priority) {
 				[ this.values[insertedIdx], this.values[parentIdx] ] = [
 					this.values[parentIdx],
 					this.values[insertedIdx]
@@ -75,13 +75,13 @@ class PriorityQueue {
 			right = parent * 2 + 2;
 
 			let highestPriority;
-			if (this.values.right) {
-				highestPriority = Math.max(this.values[left].priority, this.values[right].priority);
+			if (this.values[right]) {
+				highestPriority = Math.min(this.values[left].priority, this.values[right].priority);
 			} else {
 				highestPriority = this.values[left].priority;
 			}
 
-			if (this.values[parent].priority >= highestPriority) {
+			if (this.values[parent].priority <= highestPriority) {
 				break;
 			}
 
